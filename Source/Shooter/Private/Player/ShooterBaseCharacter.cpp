@@ -9,6 +9,7 @@
 #include "Components/ShooterHealthComponent.h"
 #include "Components/TextRenderComponent.h"
 #include "GameFramework/Controller.h"
+#include "Weapon/ShooterBaseWeapon.h"
 
 DEFINE_LOG_CATEGORY_STATIC(BaseCharacterLog, All, All);
 
@@ -22,14 +23,15 @@ AShooterBaseCharacter::AShooterBaseCharacter(const FObjectInitializer& ObjInit)
 	SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>("SpringArmComponent");
 	SpringArmComponent->SetupAttachment(GetRootComponent());
 	SpringArmComponent->bUsePawnControlRotation=true;
+	SpringArmComponent->SocketOffset = FVector(0.0f, 180.0f, 80.0f);
 
 	CameraComponent = CreateDefaultSubobject<UCameraComponent>("CameraComponent");
-	CameraComponent->SetupAttachment(SpringArmComponent);
+	CameraComponent -> SetupAttachment(SpringArmComponent);
 
 	HealthComponent = CreateDefaultSubobject<UShooterHealthComponent>("HealthComponent");
-
 	HealthTextComponent = CreateDefaultSubobject<UTextRenderComponent>("HealthTextComponent");
-	HealthTextComponent->SetupAttachment(GetRootComponent());
+	HealthTextComponent -> SetupAttachment(GetRootComponent());
+	HealthTextComponent -> SetOwnerNoSee(true);
 
 }
 
@@ -47,6 +49,8 @@ void AShooterBaseCharacter::BeginPlay()
 	HealthComponent->OnHealthChange.AddUObject(this, &AShooterBaseCharacter::OnHealthChange);
 
 	LandedDelegate.AddDynamic(this, &AShooterBaseCharacter::OnGroundLanded);
+
+	SpawnWeapon();
 }
 
 // Called every frame
@@ -140,6 +144,16 @@ void AShooterBaseCharacter::OnGroundLanded(const FHitResult& Hit)
 	const auto FinalDamage = FMath::GetMappedRangeValueClamped(LandedDamageVelocity,LandedDamage,FallVelocityZ);
 	UE_LOG(BaseCharacterLog, Display, TEXT("Final Damage: %f"),FinalDamage);
 	TakeDamage(FinalDamage, FDamageEvent{},nullptr,nullptr);
+}
+void AShooterBaseCharacter::SpawnWeapon()
+{
+	if(!GetWorld()) return;
+	const auto Weapon = GetWorld()->SpawnActor<AShooterBaseWeapon>(WeaponClass);
+	if(Weapon)
+	{
+		FAttachmentTransformRules AttachmentRules(EAttachmentRule::SnapToTarget,false);
+		Weapon->AttachToComponent(GetMesh(),AttachmentRules,"WeaponSocket");
+	}
 }
 
 

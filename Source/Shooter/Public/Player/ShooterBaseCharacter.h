@@ -3,7 +3,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Camera/CameraComponent.h"
 #include "GameFramework/Character.h"
 #include "ShooterBaseCharacter.generated.h"
 
@@ -11,6 +10,7 @@ class USpringArmComponent;
 class UCameraComponent;
 class UShooterHealthComponent;
 class UTextRenderComponent;
+class AShooterBaseWeapon;
 
 UCLASS()
 class SHOOTER_API AShooterBaseCharacter : public ACharacter
@@ -49,6 +49,9 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category="Damage")
 	FVector2D LandedDamage = FVector2D(10.0f, 100.0f);
 
+	UPROPERTY(EditDefaultsOnly, Category="Weapon")
+	TSubclassOf<AShooterBaseWeapon> WeaponClass;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -79,5 +82,5 @@ private:
 	UFUNCTION()
 	void OnGroundLanded(const FHitResult& Hit);
 	
-	
+	void SpawnWeapon();
 };
