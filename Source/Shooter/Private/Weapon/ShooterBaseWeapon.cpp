@@ -4,7 +4,8 @@
 #include "Weapon/ShooterBaseWeapon.h"
 #include "Components/SkeletalMeshComponent.h"
 
-// Sets default values
+DEFINE_LOG_CATEGORY_STATIC(LogBaseWeapon, All, All);
+
 AShooterBaseWeapon::AShooterBaseWeapon()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
@@ -19,5 +20,10 @@ void AShooterBaseWeapon::BeginPlay()
 {
 	Super::BeginPlay();
 	
+}
+
+void AShooterBaseWeapon::Fire()
+{
+	UE_LOG(LogBaseWeapon, Display, TEXT("FIRE"));
 }
 

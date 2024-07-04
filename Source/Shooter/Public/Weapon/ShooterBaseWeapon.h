@@ -14,7 +14,7 @@ class SHOOTER_API AShooterBaseWeapon : public AActor
 	
 public:	
 	AShooterBaseWeapon();
-
+	virtual void Fire();
 
 protected:
 	virtual void BeginPlay() override;
