@@ -18,6 +18,5 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="Movment", meta = (ClampMin="1.5", ClampMax="20.0"))
 	float RunModifier = 2.0;
 	virtual float GetMaxSpeed() const override;
-
 	
 };

@@ -7,11 +7,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9a14f76-6a19-4915-a00a-6cf870c11cf2" name="Changes" comment="" />
+    <list default="true" id="d9a14f76-6a19-4915-a00a-6cf870c11cf2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Shooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Shooter/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/LevelTest.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/LevelTest.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Player/Animation/ABP_BaseCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Player/Animation/ABP_BaseCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Player/Blueprint/BP_ShooterBaseCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Player/Blueprint/BP_ShooterBaseCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/Player/ShooterBaseCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/Player/ShooterBaseCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/Components/SCharacterMovementComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/Components/SCharacterMovementComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/Player/ShooterBaseCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/Player/ShooterBaseCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Shooter/Shooter.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Shooter.Build.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -26,6 +38,7 @@
   &quot;keyToString&quot;: {
     &quot;C++ Project.Shooter.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -189,7 +202,11 @@
       <workItem from="1719337406252" duration="157000" />
       <workItem from="1719337610405" duration="215000" />
       <workItem from="1719338712079" duration="7366000" />
-      <workItem from="1719411313629" duration="2447000" />
+      <workItem from="1719411313629" duration="5494000" />
+      <workItem from="1719475936026" duration="6287000" />
+      <workItem from="1719925285023" duration="12095000" />
+      <workItem from="1720014253583" duration="11682000" />
+      <workItem from="1720098449722" duration="2791000" />
     </task>
     <servers />
   </component>

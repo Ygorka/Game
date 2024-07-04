@@ -6,7 +6,11 @@
 #include "Camera/CameraComponent.h"
 #include "Components/InputComponent.h"
 #include "Components/SCharacterMovementComponent.h"
+#include "Components/ShooterHealthComponent.h"
+#include "Components/TextRenderComponent.h"
+#include "GameFramework/Controller.h"
 
+DEFINE_LOG_CATEGORY_STATIC(BaseCharacterLog, All, All);
 
 // Sets default values
 AShooterBaseCharacter::AShooterBaseCharacter(const FObjectInitializer& ObjInit)
@@ -22,27 +26,41 @@ AShooterBaseCharacter::AShooterBaseCharacter(const FObjectInitializer& ObjInit)
 	CameraComponent = CreateDefaultSubobject<UCameraComponent>("CameraComponent");
 	CameraComponent->SetupAttachment(SpringArmComponent);
 
+	HealthComponent = CreateDefaultSubobject<UShooterHealthComponent>("HealthComponent");
+
+	HealthTextComponent = CreateDefaultSubobject<UTextRenderComponent>("HealthTextComponent");
+	HealthTextComponent->SetupAttachment(GetRootComponent());
+
 }
 
 // Called when the game starts or when spawned
 void AShooterBaseCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	check(HealthComponent);
+	check(HealthTextComponent);
+	check(GetCharacterMovement());
+
+	OnHealthChange(HealthComponent->GetHealth());
+	HealthComponent->OnDeath.AddUObject(this, &AShooterBaseCharacter::OnDeath);
+	HealthComponent->OnHealthChange.AddUObject(this, &AShooterBaseCharacter::OnHealthChange);
+
+	LandedDelegate.AddDynamic(this, &AShooterBaseCharacter::OnGroundLanded);
 }
 
 // Called every frame
 void AShooterBaseCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
+
 
 // Called to bind functionality to input
 void AShooterBaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
+	check(PlayerInputComponent);
 	PlayerInputComponent->BindAxis("MoveForward",this,&AShooterBaseCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight",this,&AShooterBaseCharacter::MoveRight);
 	PlayerInputComponent->BindAxis("LookUp",this,&AShooterBaseCharacter::AddControllerPitchInput);
@@ -90,6 +108,38 @@ float AShooterBaseCharacter::GetMovementDirection() const
 	const auto CrossProduct = FVector::CrossProduct(GetActorForwardVector(), VelocityNormal);
 	const auto Degress = FMath::RadiansToDegrees(AngleBetween);
 	return CrossProduct.IsZero() ? Degress : Degress  * FMath::Sign(CrossProduct.Z);
+}
+
+void AShooterBaseCharacter::OnDeath()
+{
+	UE_LOG(BaseCharacterLog,Display,TEXT("Player %s is dead"), *GetName());
+
+	PlayAnimMontage(DeathAnimMontage);
+
+	GetCharacterMovement()->DisableMovement();
+	SetLifeSpan(LifeSpanOnDeath);
+
+	if(Controller)
+	{
+		Controller->ChangeState(NAME_Spectating);
+	}
+}
+
+void AShooterBaseCharacter::OnHealthChange(float Health)
+{
+	HealthTextComponent->SetText(FText::FromString(FString::Printf(TEXT("%.0f"),Health)));
+}
+
+void AShooterBaseCharacter::OnGroundLanded(const FHitResult& Hit)
+{
+	const auto FallVelocityZ = -GetVelocity().Z;
+	UE_LOG(BaseCharacterLog, Display, TEXT("In Landed: %f"),FallVelocityZ);
+
+	if(FallVelocityZ < LandedDamageVelocity.X) return;
+
+	const auto FinalDamage = FMath::GetMappedRangeValueClamped(LandedDamageVelocity,LandedDamage,FallVelocityZ);
+	UE_LOG(BaseCharacterLog, Display, TEXT("Final Damage: %f"),FinalDamage);
+	TakeDamage(FinalDamage, FDamageEvent{},nullptr,nullptr);
 }
 
 
