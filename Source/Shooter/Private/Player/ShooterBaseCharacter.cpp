@@ -8,8 +8,9 @@
 #include "Components/SCharacterMovementComponent.h"
 #include "Components/ShooterHealthComponent.h"
 #include "Components/TextRenderComponent.h"
-#include "GameFramework/Controller.h"
 #include "Components/ShooterWeaponComponent.h"
+#include "Components/CapsuleComponent.h"
+#include "GameFramework/Controller.h"
 
 DEFINE_LOG_CATEGORY_STATIC(BaseCharacterLog, All, All);
 
@@ -131,6 +132,8 @@ void AShooterBaseCharacter::OnDeath()
 	{
 		Controller->ChangeState(NAME_Spectating);
 	}
+
+	GetCapsuleComponent()->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
 }
 
 void AShooterBaseCharacter::OnHealthChange(float Health)
