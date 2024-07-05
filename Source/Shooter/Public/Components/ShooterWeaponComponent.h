@@ -16,7 +16,8 @@ class SHOOTER_API UShooterWeaponComponent : public UActorComponent
 public:	
 	UShooterWeaponComponent();
 
-	void Fire();
+	void StartFire();
+	void StopFire();
 
 protected:
 	UPROPERTY(EditDefaultsOnly, Category="Weapon")

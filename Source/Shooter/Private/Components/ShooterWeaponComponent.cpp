@@ -32,9 +32,15 @@ void UShooterWeaponComponent::SpawnWeapon()
 	CurrentWeapon->SetOwner(Character);
 }
 
-void UShooterWeaponComponent::Fire()
+void UShooterWeaponComponent::StartFire()
 {
 	if(!CurrentWeapon) return;
-	CurrentWeapon->Fire();
+	CurrentWeapon->StartFire();
+}
+
+void UShooterWeaponComponent::StopFire()
+{
+	if(!CurrentWeapon) return;
+	CurrentWeapon->StopFire();
 }
 

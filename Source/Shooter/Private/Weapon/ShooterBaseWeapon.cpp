@@ -5,7 +5,6 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "Engine/World.h"
 #include "DrawDebugHelpers.h"
-#include "Viewports.h"
 #include "GameFramework/Character.h"
 #include "GameFramework/Controller.h"
 
@@ -27,55 +26,61 @@ void AShooterBaseWeapon::BeginPlay()
 	check(WeaponMesh);
 }
 
-void AShooterBaseWeapon::Fire()
+void AShooterBaseWeapon::StartFire()
 {
-	UE_LOG(LogBaseWeapon, Display, TEXT("FIRE"));
-	MakeShoot();
 }
 
-void AShooterBaseWeapon::MakeShoot()
+void AShooterBaseWeapon::StopFire()
 {
-	if(!GetWorld()) return;
+}
 
+void AShooterBaseWeapon::MakeShot()
+{
+}
+
+APlayerController* AShooterBaseWeapon::GetPlayerController() const
+{
 	const auto Player = Cast<ACharacter>(GetOwner());
-	
-	if(!Player) return;
+	if(!Player) return nullptr;
 
-	const auto Controller = Player->GetController<APlayerController>();
-	if(!Controller) return;
+	return Player->GetController<APlayerController>();
+}
+bool AShooterBaseWeapon::GetPlayerViewPoint(FVector& ViewLocation, FRotator& ViewRotation) const
+{
+	const auto Controller = GetPlayerController();
+	if(!Controller) return false;
 
+	Controller->GetPlayerViewPoint(ViewLocation, ViewRotation);
+	return true;
+}
+FVector AShooterBaseWeapon::GetMuzzleWorldLocation() const
+{
+	return WeaponMesh->GetSocketLocation(MuzzleSocketName);
+}
+bool AShooterBaseWeapon::GetTraceData(FVector& TraceStart, FVector& TraceEnd) const
+{
 	FVector ViewLocation;
 	FRotator ViewRotation;
-	Controller->GetPlayerViewPoint(ViewLocation, ViewRotation);
-
-	const FTransform SocketTransform = WeaponMesh->GetSocketTransform(MuzzleSocketName);
-	const FVector TraceStart = ViewLocation;
+	if(!GetPlayerViewPoint(ViewLocation,ViewRotation)) return false;
+	
+	TraceStart = ViewLocation;
 	const FVector ShootDirection = ViewRotation.Vector();
-	const FVector TraceEnd = TraceStart + ShootDirection * TraceMaxDistance;
-
+	TraceEnd = TraceStart + ShootDirection * TraceMaxDistance;
+	return true;
+}
+void AShooterBaseWeapon::MakeHit(FHitResult& HitResult, const FVector& TraceStart, const FVector& TraceEnd) const
+{
+	if(!GetWorld()) return;
 	FCollisionQueryParams CollisionParams;
 	CollisionParams.AddIgnoredActor(GetOwner());
-	FHitResult HitResult;
 	GetWorld()->LineTraceSingleByChannel(HitResult, TraceStart, TraceEnd, ECC_Visibility, CollisionParams);
-
-	if(HitResult.bBlockingHit)
-	{
-		MakeDamage(HitResult, Controller);
-		DrawDebugLine(GetWorld(), SocketTransform.GetLocation(), HitResult.ImpactPoint, FColor::Red, false, 3.0f, 0, 3.0f);
-		DrawDebugSphere(GetWorld(), HitResult.ImpactPoint, 10.0f, 24, FColor::Red, false, 5.0f);
-	}
-	else
-	{
-		DrawDebugLine(GetWorld(), SocketTransform.GetLocation(), TraceEnd, FColor::Red, false, 3.0f, 0, 3.0f);
-	}
 }
-
-void AShooterBaseWeapon::MakeDamage(const FHitResult& HitResult, APlayerController* Controller)
+void AShooterBaseWeapon::MakeDamage(const FHitResult& HitResult)
 {
 	const auto DamageActor = HitResult.GetActor();
 	if(!DamageActor) return;
 
-	DamageActor->TakeDamage(DamageAmount, FDamageEvent{}, Controller, this);
+	DamageActor->TakeDamage(DamageAmount, FDamageEvent{}, GetPlayerController(), this);
 }
 
 

@@ -70,14 +70,15 @@ void AShooterBaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInp
 	check(PlayerInputComponent);
 	check(WeaponComponent);
 	
-	PlayerInputComponent->BindAxis("MoveForward",this,&AShooterBaseCharacter::MoveForward);
-	PlayerInputComponent->BindAxis("MoveRight",this,&AShooterBaseCharacter::MoveRight);
-	PlayerInputComponent->BindAxis("LookUp",this,&AShooterBaseCharacter::AddControllerPitchInput);
-	PlayerInputComponent->BindAxis("LookAround",this,&AShooterBaseCharacter::AddControllerYawInput);
+	PlayerInputComponent->BindAxis("MoveForward",this, &AShooterBaseCharacter::MoveForward);
+	PlayerInputComponent->BindAxis("MoveRight",this, &AShooterBaseCharacter::MoveRight);
+	PlayerInputComponent->BindAxis("LookUp",this, &AShooterBaseCharacter::AddControllerPitchInput);
+	PlayerInputComponent->BindAxis("LookAround",this ,&AShooterBaseCharacter::AddControllerYawInput);
 	PlayerInputComponent->BindAction("Jump", IE_Pressed,this,&AShooterBaseCharacter::Jump);
 	PlayerInputComponent->BindAction("Run", IE_Pressed,this, &AShooterBaseCharacter::OnStartRunning);
-	PlayerInputComponent->BindAction("Run", IE_Released ,this, &AShooterBaseCharacter::OnStopRunning);
-	PlayerInputComponent->BindAction("Fire", IE_Pressed, WeaponComponent, &UShooterWeaponComponent::Fire);
+	PlayerInputComponent->BindAction("Run", IE_Released,this, &AShooterBaseCharacter::OnStopRunning);
+	PlayerInputComponent->BindAction("Fire", IE_Pressed, WeaponComponent, &UShooterWeaponComponent::StartFire);
+	PlayerInputComponent->BindAction("Fire", IE_Released, WeaponComponent, &UShooterWeaponComponent::StopFire);
 }
 
 

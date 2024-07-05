@@ -14,10 +14,10 @@ class SHOOTER_API AShooterBaseWeapon : public AActor
 	
 public:	
 	AShooterBaseWeapon();
-	virtual void Fire();
+	virtual void StartFire();
+	virtual void StopFire();
 
 protected:
-	virtual void BeginPlay() override;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Components")
 	USkeletalMeshComponent* WeaponMesh;
@@ -30,7 +30,15 @@ protected:
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Damage")
 	float DamageAmount = 10.0f;
+
+	virtual void BeginPlay() override;
+	virtual void MakeShot();
+	virtual bool GetTraceData(FVector& TraceStart, FVector& TraceEnd) const;
 	
-	void MakeDamage(const FHitResult& HitResult, APlayerController* Controller);
-	void MakeShoot();
+	APlayerController* GetPlayerController() const;
+	bool GetPlayerViewPoint(FVector& ViewLocation, FRotator& ViewRotation) const;
+	FVector GetMuzzleWorldLocation() const;
+	
+	void MakeHit(FHitResult& HitResult, const FVector& TraceStart, const FVector& TraceEnd) const;
+	void MakeDamage(const FHitResult& HitResult);
 };
