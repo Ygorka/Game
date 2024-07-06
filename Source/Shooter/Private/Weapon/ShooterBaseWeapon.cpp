@@ -75,12 +75,5 @@ void AShooterBaseWeapon::MakeHit(FHitResult& HitResult, const FVector& TraceStar
 	CollisionParams.AddIgnoredActor(GetOwner());
 	GetWorld()->LineTraceSingleByChannel(HitResult, TraceStart, TraceEnd, ECC_Visibility, CollisionParams);
 }
-void AShooterBaseWeapon::MakeDamage(const FHitResult& HitResult)
-{
-	const auto DamageActor = HitResult.GetActor();
-	if(!DamageActor) return;
-
-	DamageActor->TakeDamage(DamageAmount, FDamageEvent{}, GetPlayerController(), this);
-}
 
 

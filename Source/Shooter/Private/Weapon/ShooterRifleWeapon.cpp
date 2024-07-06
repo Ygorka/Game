@@ -50,3 +50,11 @@ bool AShooterRifleWeapon::GetTraceData(FVector& TraceStart, FVector& TraceEnd) c
 	return true;
 }
 
+void AShooterRifleWeapon::MakeDamage(const FHitResult& HitResult)
+{
+	const auto DamageActor = HitResult.GetActor();
+	if(!DamageActor) return;
+
+	DamageActor->TakeDamage(DamageAmount, FDamageEvent{}, GetPlayerController(), this);
+}
+
