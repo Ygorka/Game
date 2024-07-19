@@ -14,11 +14,9 @@
 
 DEFINE_LOG_CATEGORY_STATIC(BaseCharacterLog, All, All);
 
-// Sets default values
 AShooterBaseCharacter::AShooterBaseCharacter(const FObjectInitializer& ObjInit)
 :Super(ObjInit.SetDefaultSubobjectClass<USCharacterMovementComponent>(ACharacter::CharacterMovementComponentName))
 {
- 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 	SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>("SpringArmComponent");
@@ -39,7 +37,6 @@ AShooterBaseCharacter::AShooterBaseCharacter(const FObjectInitializer& ObjInit)
 
 }
 
-// Called when the game starts or when spawned
 void AShooterBaseCharacter::BeginPlay()
 {
 	Super::BeginPlay();
@@ -55,7 +52,6 @@ void AShooterBaseCharacter::BeginPlay()
 	LandedDelegate.AddDynamic(this, &AShooterBaseCharacter::OnGroundLanded);
 }
 
-// Called every frame
 void AShooterBaseCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);

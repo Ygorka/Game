@@ -197,3 +197,23 @@ void UShooterWeaponComponent::ChangeClip()
 	PlayAnimMontage(CurrentReloadAnimMontage);
 }
 
+bool UShooterWeaponComponent::GetCurrentWeaponUIData(FWeaponUIData& UIData) const
+{
+	if(CurrentWeapon)
+	{
+		UIData = CurrentWeapon->GetUIData();
+		return true;
+	}
+	return false;
+}
+
+bool UShooterWeaponComponent::GetCurrentWeaponAmmoData(FAmmoData& AmmoData) const
+{
+	if(CurrentWeapon)
+	{
+		AmmoData = CurrentWeapon->GetAmmoData();
+		return true;
+	}
+	return false;
+}
+

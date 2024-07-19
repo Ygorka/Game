@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "ShooterBaseWeapon.h"
 #include "Components/ActorComponent.h"
 #include "ShooterCoreTypes.h"
 #include "ShooterWeaponComponent.generated.h"
@@ -22,6 +23,9 @@ public:
 	void StopFire();
 	void NextWeapon();
 	void Reload();
+
+	bool GetCurrentWeaponUIData(FWeaponUIData& UIData) const;
+	bool GetCurrentWeaponAmmoData(FAmmoData& AmmoData) const;
 
 protected:
 	UPROPERTY(EditDefaultsOnly, Category="Weapon")

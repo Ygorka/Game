@@ -8,26 +8,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9a14f76-6a19-4915-a00a-6cf870c11cf2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Source/Shooter/Public/Animations/AnimUtils.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/Shooter/Public/ShooterCoreTypes.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Shooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Shooter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Animations/TTP_Animations/Reload.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Animations/TTP_Animations/Reload.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/HeroTPP/HeroTPP_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/HeroTPP/HeroTPP_Skeleton.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP_ShooterBaseWeapon.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP_ShooterGameModeBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_ShooterGameModeBase.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/LevelTest.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/LevelTest.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Player/Animation/ABP_BaseCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Player/Animation/ABP_BaseCharacter.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Player/Blueprint/BP_ShooterBaseCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Player/Blueprint/BP_ShooterBaseCharacter.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Weapons/Bluprint/BP_ShooterLauncherWeapon.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Weapons/Bluprint/BP_ShooterLauncherWeapon.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Weapons/Bluprint/BP_ShooterRifleWeapon.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Weapons/Bluprint/BP_ShooterRifleWeapon.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shooter.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/Shooter.uproject" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/Components/ShooterHealthComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/Components/ShooterHealthComponent.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/Components/ShooterWeaponComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/Components/ShooterWeaponComponent.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/Player/ShooterBaseCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/Player/ShooterBaseCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/UI/ShooterGameHUD.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/UI/ShooterGameHUD.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/Weapon/ShooterBaseWeapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/Weapon/ShooterBaseWeapon.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/Weapon/ShooterLauncherWeapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/Weapon/ShooterLauncherWeapon.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/Weapon/ShooterRifleWeapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/Weapon/ShooterRifleWeapon.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/Components/ShooterHealthComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/Components/ShooterHealthComponent.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/Components/ShooterWeaponComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/Components/ShooterWeaponComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/ShooterCoreTypes.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/ShooterCoreTypes.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/UI/ShooterGameHUD.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/UI/ShooterGameHUD.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/Weapon/ShooterBaseWeapon.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/Weapon/ShooterBaseWeapon.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Shooter/Shooter.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Shooter.Build.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +37,12 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Source/Shooter/Private/UI/ShooterGameHUD.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Shooter/Private/UI/ShooterPlayerHUDWidget.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Shooter/Public/UI/ShooterGameHUD.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Shooter/Public/UI/ShooterPlayerHUDWidget.h" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -55,6 +58,7 @@
     &quot;C++ Project.Shooter.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -229,7 +233,18 @@
       <workItem from="1720364822877" duration="3755000" />
       <workItem from="1720446232605" duration="10749000" />
       <workItem from="1720459965814" duration="1870000" />
-      <workItem from="1720534324727" duration="6776000" />
+      <workItem from="1720534324727" duration="7608000" />
+      <workItem from="1721151680762" duration="4887000" />
+      <workItem from="1721299353847" duration="940000" />
+      <workItem from="1721301634436" duration="96000" />
+      <workItem from="1721302966909" duration="1172000" />
+      <workItem from="1721390875851" duration="100000" />
+      <workItem from="1721391097680" duration="78000" />
+      <workItem from="1721391260771" duration="123000" />
+      <workItem from="1721391472700" duration="45000" />
+      <workItem from="1721391683653" duration="1842000" />
+      <workItem from="1721393639412" duration="5926000" />
+      <workItem from="1721415104880" duration="1772000" />
     </task>
     <servers />
   </component>
