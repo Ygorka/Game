@@ -184,9 +184,24 @@ void UShooterWeaponComponent::Reload()
 	ChangeClip();
 }
 
-void UShooterWeaponComponent::OnEmptyClip()
+void UShooterWeaponComponent::OnEmptyClip(AShooterBaseWeapon* AmmoEmptyWeapon)
 {
-	ChangeClip();
+	if(!AmmoEmptyWeapon) return;
+	
+	if(CurrentWeapon == AmmoEmptyWeapon)
+	{
+		ChangeClip();
+	}
+	else
+	{
+		for(const auto Weapon : Weapons)
+		{
+			if(Weapon == AmmoEmptyWeapon)
+			{
+				Weapon->ChangeClip();
+			}
+		}
+	}
 }
 void UShooterWeaponComponent::ChangeClip()
 {
@@ -213,6 +228,18 @@ bool UShooterWeaponComponent::GetCurrentWeaponAmmoData(FAmmoData& AmmoData) cons
 	{
 		AmmoData = CurrentWeapon->GetAmmoData();
 		return true;
+	}
+	return false;
+}
+
+bool UShooterWeaponComponent::TryToAddAmmo(TSubclassOf<AShooterBaseWeapon> WeaponType, int32 ClipsAmount)
+{
+	for(const auto Weapon : Weapons)
+	{
+		if(Weapon && Weapon->IsA(WeaponType))
+		{
+			return Weapon->TryToAddAmmo(ClipsAmount);
+		}
 	}
 	return false;
 }

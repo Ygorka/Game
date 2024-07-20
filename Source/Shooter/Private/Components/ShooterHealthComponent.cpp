@@ -58,7 +58,7 @@ void UShooterHealthComponent::HealUpdate()
 {
 	SetHealth(Health + HealModifier);
 
-	if(FMath::IsNearlyEqual(Health, MaxHealth) && GetWorld())
+	if(IsHealthFull() && GetWorld())
 	{
 		GetWorld()->GetTimerManager().ClearTimer(HealTimerHandle);
 	}
@@ -68,4 +68,19 @@ void UShooterHealthComponent::SetHealth(float NewHealth)
 {
 	Health = FMath::Clamp(NewHealth,0.0f, MaxHealth);
 	OnHealthChange.Broadcast(Health);
+}
+
+bool UShooterHealthComponent::TryToAddHealth(float HealthAmount)
+{
+	if(IsDead() || IsHealthFull())
+	{
+		return false;
+	}
+
+	SetHealth(Health + HealthAmount);
+	return true;
+}
+bool UShooterHealthComponent::IsHealthFull() const
+{
+	return FMath::IsNearlyEqual(Health, MaxHealth);
 }

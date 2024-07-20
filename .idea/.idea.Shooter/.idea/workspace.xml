@@ -9,23 +9,16 @@
   <component name="ChangeListManager">
     <list default="true" id="d9a14f76-6a19-4915-a00a-6cf870c11cf2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Shooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Shooter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP_ShooterBaseWeapon.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP_ShooterGameModeBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_ShooterGameModeBase.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/LevelTest.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/LevelTest.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Player/Blueprint/BP_ShooterBaseCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Player/Blueprint/BP_ShooterBaseCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Weapons/Bluprint/BP_ShooterLauncherWeapon.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Weapons/Bluprint/BP_ShooterLauncherWeapon.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Weapons/Bluprint/BP_ShooterRifleWeapon.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Weapons/Bluprint/BP_ShooterRifleWeapon.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shooter.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/Shooter.uproject" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/Components/ShooterHealthComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/Components/ShooterHealthComponent.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/Components/ShooterWeaponComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/Components/ShooterWeaponComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/Player/ShooterBaseCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/Player/ShooterBaseCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/UI/ShooterGameHUD.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/UI/ShooterGameHUD.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/Weapon/ShooterBaseWeapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/Weapon/ShooterBaseWeapon.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/Components/ShooterHealthComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/Components/ShooterHealthComponent.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/Components/ShooterWeaponComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/Components/ShooterWeaponComponent.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/ShooterCoreTypes.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/ShooterCoreTypes.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/UI/ShooterGameHUD.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/UI/ShooterGameHUD.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/Weapon/ShooterBaseWeapon.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/Weapon/ShooterBaseWeapon.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Shooter/Shooter.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Shooter.Build.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -244,7 +237,8 @@
       <workItem from="1721391472700" duration="45000" />
       <workItem from="1721391683653" duration="1842000" />
       <workItem from="1721393639412" duration="5926000" />
-      <workItem from="1721415104880" duration="1772000" />
+      <workItem from="1721415104880" duration="2372000" />
+      <workItem from="1721471043147" duration="10829000" />
     </task>
     <servers />
   </component>
