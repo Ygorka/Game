@@ -6,6 +6,23 @@
 #include "Components/ShooterWeaponComponent.h"
 #include "ShooterUtils.h"
 
+bool UShooterPlayerHUDWidget::Initialize()
+{
+	const auto HealthComponent = ShooterUtils::GetShooterPlayerComponent<UShooterHealthComponent>(GetOwningPlayerPawn());
+	if(HealthComponent)
+	{
+		HealthComponent->OnHealthChange.AddUObject(this,&UShooterPlayerHUDWidget::OnHealthChanged);
+	}
+	return Super::Initialize();
+}
+
+void UShooterPlayerHUDWidget::OnHealthChanged(float Health, float HealthDelta)
+{
+	if(HealthDelta < 0.0f)
+	{
+		OnTakeDamage();
+	}
+}
 float UShooterPlayerHUDWidget::GetHealthPercent() const
 {
 	const auto HealthComponent = ShooterUtils::GetShooterPlayerComponent<UShooterHealthComponent>(GetOwningPlayerPawn());

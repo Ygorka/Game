@@ -9,15 +9,30 @@
   <component name="ChangeListManager">
     <list default="true" id="d9a14f76-6a19-4915-a00a-6cf870c11cf2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Shooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Shooter/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Characters/HeroTPP/HeroTPP_Physics.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/HeroTPP/HeroTPP_Physics.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/LevelTest.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/LevelTest.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Material/MI_BlueGlow.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Material/MI_BlueGlow.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Material/M_BaseColor.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Material/M_BaseColor.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Material/M_BaseGlow.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Material/M_BaseGlow.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Player/Blueprint/BP_ShooterBaseCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Player/Blueprint/BP_ShooterBaseCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/UI/WBP_PlayerHUD.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/WBP_PlayerHUD.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Weapons/Bluprint/BP_ShooterLauncherWeapon.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Weapons/Bluprint/BP_ShooterLauncherWeapon.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Weapons/Bluprint/BP_ShooterProjectile.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Weapons/Bluprint/BP_ShooterProjectile.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Weapons/Bluprint/BP_ShooterRifleWeapon.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Weapons/Bluprint/BP_ShooterRifleWeapon.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/Components/ShooterHealthComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/Components/ShooterHealthComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/Components/ShooterWeaponComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/Components/ShooterWeaponComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/Player/ShooterBaseCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/Player/ShooterBaseCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/UI/ShooterPlayerHUDWidget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/UI/ShooterPlayerHUDWidget.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/Weapon/ShooterBaseWeapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/Weapon/ShooterBaseWeapon.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/Weapon/ShooterLauncherWeapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/Weapon/ShooterLauncherWeapon.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/Weapon/ShooterProjectile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/Weapon/ShooterProjectile.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/Weapon/ShooterRifleWeapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/Weapon/ShooterRifleWeapon.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/Components/ShooterHealthComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/Components/ShooterHealthComponent.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/Components/ShooterWeaponComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/Components/ShooterWeaponComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/Player/ShooterBaseCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/Player/ShooterBaseCharacter.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/ShooterCoreTypes.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/ShooterCoreTypes.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/UI/ShooterPlayerHUDWidget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/UI/ShooterPlayerHUDWidget.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/Weapon/ShooterBaseWeapon.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/Weapon/ShooterBaseWeapon.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/Weapon/ShooterProjectile.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/Weapon/ShooterProjectile.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/Weapon/ShooterRifleWeapon.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/Weapon/ShooterRifleWeapon.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Shooter/Shooter.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Shooter.Build.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,6 +48,7 @@
     <setting file="file://$PROJECT_DIR$/Source/Shooter/Private/UI/ShooterPlayerHUDWidget.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Shooter/Public/UI/ShooterGameHUD.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Shooter/Public/UI/ShooterPlayerHUDWidget.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Shooter/Public/Weapon/Components/ShooterWeaponFXComponent.h" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -239,6 +255,10 @@
       <workItem from="1721393639412" duration="5926000" />
       <workItem from="1721415104880" duration="2372000" />
       <workItem from="1721471043147" duration="10829000" />
+      <workItem from="1721575414911" duration="5102000" />
+      <workItem from="1721656335267" duration="10395000" />
+      <workItem from="1721754833026" duration="2972000" />
+      <workItem from="1721848832443" duration="1274000" />
     </task>
     <servers />
   </component>
