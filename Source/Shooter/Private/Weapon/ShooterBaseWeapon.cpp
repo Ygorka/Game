@@ -51,18 +51,34 @@ APlayerController* AShooterBaseWeapon::GetPlayerController() const
 
 	return Player->GetController<APlayerController>();
 }
+
 bool AShooterBaseWeapon::GetPlayerViewPoint(FVector& ViewLocation, FRotator& ViewRotation) const
 {
-	const auto Controller = GetPlayerController();
-	if(!Controller) return false;
+	const auto SCharacter = Cast<ACharacter>(GetOwner());
+	if(!SCharacter) return false;
 
-	Controller->GetPlayerViewPoint(ViewLocation, ViewRotation);
+	if(SCharacter->IsPlayerControlled())
+	{
+		const auto Controller = GetPlayerController();
+		if(!Controller) return false;
+
+		Controller->GetPlayerViewPoint(ViewLocation, ViewRotation);
+	}
+	else
+	{
+		ViewLocation = GetMuzzleWorldLocation();
+		ViewRotation = WeaponMesh->GetSocketRotation(MuzzleSocketName);
+	}
+	
+	
 	return true;
 }
+
 FVector AShooterBaseWeapon::GetMuzzleWorldLocation() const
 {
 	return WeaponMesh->GetSocketLocation(MuzzleSocketName);
 }
+
 bool AShooterBaseWeapon::GetTraceData(FVector& TraceStart, FVector& TraceEnd) const
 {
 	FVector ViewLocation;

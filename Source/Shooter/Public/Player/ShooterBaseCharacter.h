@@ -25,6 +25,8 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	virtual void OnDeath();
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Components")
 	USpringArmComponent *SpringArmComponent;
 
@@ -74,8 +76,6 @@ private:
 
 	void OnStartRunning();
 	void OnStopRunning ();
-
-	void OnDeath();
 
 	void OnHealthChange(float Health, float HealthDelta);
 
