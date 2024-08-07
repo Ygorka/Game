@@ -244,3 +244,14 @@ bool UShooterWeaponComponent::TryToAddAmmo(TSubclassOf<AShooterBaseWeapon> Weapo
 	return false;
 }
 
+bool UShooterWeaponComponent::NeedAmmo(TSubclassOf<AShooterBaseWeapon> WeaponType)
+{
+	for(const auto Weapon : Weapons)
+	{
+		if(Weapon && Weapon->IsA(WeaponType))
+		{
+			return !Weapon->IsAmmoFull();
+		}
+	}
+	return false;
+}

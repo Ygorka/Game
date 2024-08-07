@@ -27,7 +27,9 @@ protected:
 	virtual void NotifyActorBeginOverlap(AActor* OtherActor) override;
 public:	
 	virtual void Tick(float DeltaTime) override;
+	bool CouldBeTaken() const;
 private:
+	FTimerHandle RespawnTimerHandle;
 	float RotationYaw = 0.0f;
 	
 	virtual bool GivePickupTo(APawn* PlayerPawn);
