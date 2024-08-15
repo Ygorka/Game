@@ -8,12 +8,21 @@
 
 bool UShooterPlayerHUDWidget::Initialize()
 {
-	const auto HealthComponent = ShooterUtils::GetShooterPlayerComponent<UShooterHealthComponent>(GetOwningPlayerPawn());
-	if(HealthComponent)
+	if(GetOwningPlayer())
+	{
+		GetOwningPlayer()->GetOnNewPawnNotifier().AddUObject(this, &UShooterPlayerHUDWidget::OneNewPawn);
+		OneNewPawn(GetOwningPlayerPawn());
+	}
+	return Super::Initialize();
+}
+
+void UShooterPlayerHUDWidget::OneNewPawn(APawn* NewPawn)
+{
+	const auto HealthComponent = ShooterUtils::GetShooterPlayerComponent<UShooterHealthComponent>(NewPawn);
+	if(HealthComponent && !HealthComponent->OnHealthChange.IsBoundToObject(this))
 	{
 		HealthComponent->OnHealthChange.AddUObject(this,&UShooterPlayerHUDWidget::OnHealthChanged);
 	}
-	return Super::Initialize();
 }
 
 void UShooterPlayerHUDWidget::OnHealthChanged(float Health, float HealthDelta)

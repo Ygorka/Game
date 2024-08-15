@@ -5,7 +5,9 @@
 #include "Weapon/ShooterBaseWeapon.h"
 #include "GameFramework/Character.h"
 #include "ShooterEquipFinishedAnimNotify.h"
+#include "SPlayerCharacter.h"
 #include "Animations/ShooterReloadFinishedAnimNotify.h"
+#include "Player/SPlayerCharacter.h"
 #include "Animations/AnimUtils.h"
 
 DEFINE_LOG_CATEGORY_STATIC(LogWeaponComponent, All, All);
@@ -162,9 +164,16 @@ void UShooterWeaponComponent::OnReloadFinished(USkeletalMeshComponent* MeshCompo
 	ReloadAnimInProgress = false;
 }
 
+bool UShooterWeaponComponent::IsRunning() const
+{
+	const auto Player = Cast<ASPlayerCharacter>(GetOwner());
+	if(!Player) return false;
+	return Player->IsRunning();
+}
+
 bool UShooterWeaponComponent::CanFire() const
 {
-	return CurrentWeapon && !EquipAnimInProgress && !ReloadAnimInProgress;
+	return CurrentWeapon && !EquipAnimInProgress && !ReloadAnimInProgress && !IsRunning();
 }
 bool UShooterWeaponComponent::CanEquip() const
 {

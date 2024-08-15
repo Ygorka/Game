@@ -6,10 +6,7 @@
 #include "GameFramework/Character.h"
 #include "ShooterBaseCharacter.generated.h"
 
-class USpringArmComponent;
-class UCameraComponent;
 class UShooterHealthComponent;
-class UTextRenderComponent;
 class UShooterWeaponComponent;
 
 UCLASS()
@@ -28,16 +25,8 @@ protected:
 	virtual void OnDeath();
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Components")
-	USpringArmComponent *SpringArmComponent;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Components")
-	UCameraComponent*CameraComponent;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Components")
 	UShooterHealthComponent* HealthComponent;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Components")
-	UTextRenderComponent *HealthTextComponent;
+	
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Components")
 	UShooterWeaponComponent *WeaponComponent;
@@ -54,28 +43,21 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category="Damage")
 	FVector2D LandedDamage = FVector2D(10.0f, 100.0f);
 
-public:	
-	// Called every frame
+	UPROPERTY(EditDefaultsOnly, Category="Material")
+	FName MaterialColorName = "Paint Color";
+
+public:
 	virtual void Tick(float DeltaTime) override;
 
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
 	UFUNCTION(BlueprintCallable,Category="Movement")
-	bool IsRunning() const;
+	virtual bool IsRunning() const;
 	
 	UFUNCTION(BlueprintCallable,Category="Movement")
 	float GetMovementDirection() const;
+
+	void SetPlayerColor(const FLinearColor& Color);
 	
 private:
-	bool WantsToRun = false;
-	bool IsMovingForward = false;
-	
-	void MoveForward(float Amount);
-	void MoveRight(float Amount);
-
-	void OnStartRunning();
-	void OnStopRunning ();
 
 	void OnHealthChange(float Health, float HealthDelta);
 

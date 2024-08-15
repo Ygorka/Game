@@ -1,8 +1,6 @@
 // Shooter. All Rights Reserved.
 
 #include "Weapon/ShooterRifleWeapon.h"
-
-
 #include "Engine/World.h"
 #include "DrawDebugHelpers.h"
 #include "Weapon/Components/ShooterWeaponFXComponent.h"
@@ -82,7 +80,7 @@ void AShooterRifleWeapon::MakeDamage(const FHitResult& HitResult)
 	const auto DamageActor = HitResult.GetActor();
 	if(!DamageActor) return;
 
-	DamageActor->TakeDamage(DamageAmount, FDamageEvent{}, GetPlayerController(), this);
+	DamageActor->TakeDamage(DamageAmount, FDamageEvent{}, GetController(), this);
 }
 
 void AShooterRifleWeapon::InitMuzzleFX()
@@ -109,5 +107,11 @@ void AShooterRifleWeapon::SpawnTraceFX(const FVector& TraceStart, const FVector&
 	{
 		TraceFXComponent->SetNiagaraVariableVec3(TraceTargetName, TraceEnd);
 	}
+}
+
+AController* AShooterRifleWeapon::GetController() const
+{
+	const auto Pawn = Cast<APawn>(GetOwner());
+	return Pawn ? Pawn -> GetController() : nullptr;
 }
 

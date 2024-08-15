@@ -44,14 +44,6 @@ void AShooterBaseWeapon::MakeShot()
 {
 }
 
-APlayerController* AShooterBaseWeapon::GetPlayerController() const
-{
-	const auto Player = Cast<ACharacter>(GetOwner());
-	if(!Player) return nullptr;
-
-	return Player->GetController<APlayerController>();
-}
-
 bool AShooterBaseWeapon::GetPlayerViewPoint(FVector& ViewLocation, FRotator& ViewRotation) const
 {
 	const auto SCharacter = Cast<ACharacter>(GetOwner());
@@ -59,7 +51,7 @@ bool AShooterBaseWeapon::GetPlayerViewPoint(FVector& ViewLocation, FRotator& Vie
 
 	if(SCharacter->IsPlayerControlled())
 	{
-		const auto Controller = GetPlayerController();
+		const auto Controller = SCharacter->GetController<APlayerController>();
 		if(!Controller) return false;
 
 		Controller->GetPlayerViewPoint(ViewLocation, ViewRotation);
@@ -138,7 +130,7 @@ void AShooterBaseWeapon::ChangeClip()
 		CurrentAmmo.Clips--;
 	}
 	CurrentAmmo.Bullets = DefaultAmmo.Bullets;
-	UE_LOG(LogBaseWeapon, Display, TEXT("------- Reload ----"));
+	//UE_LOG(LogBaseWeapon, Display, TEXT("------- Reload ----"));
 }
 bool AShooterBaseWeapon::CanReload() const
 {

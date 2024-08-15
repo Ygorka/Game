@@ -8,6 +8,7 @@
 #include "Engine/World.h"
 #include "TimerManager.h"
 #include "Camera/CameraShakeBase.h"
+#include "ShooterGameModeBase.h"
 
 
 DEFINE_LOG_CATEGORY_STATIC(LogHealthComponent, All, All);
@@ -45,6 +46,7 @@ void UShooterHealthComponent::OnTakeAnyDamage(AActor* DamagedActor, float Damage
 	
 	if(IsDead())
 	{
+		Killed(InstigatedBy);
 		OnDeath.Broadcast();
 	}
 	else if(AutoHeal)
@@ -99,4 +101,16 @@ void UShooterHealthComponent::PlayCameraShake()
 	if(!Controller || !Controller->PlayerCameraManager) return;
 
 	Controller->PlayerCameraManager->StartCameraShake(CameraShake);
+}
+
+void UShooterHealthComponent::Killed(AController* KillerController)
+{
+	const auto GameMode = Cast<AShooterGameModeBase>(GetWorld()->GetAuthGameMode());
+
+	if(!GameMode) return;
+
+	const auto Player = Cast<APawn>(GetOwner());
+	const auto VictimController = Player ? Player->Controller : nullptr;
+
+	GameMode->Killed(KillerController, VictimController);
 }

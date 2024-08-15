@@ -73,6 +73,7 @@ private:
 	void InitAnimations();
 	void OnEquipFinished(USkeletalMeshComponent* MeshComponent);
 	void OnReloadFinished(USkeletalMeshComponent* MeshComponent);
+	bool IsRunning() const;
 	
 	bool CanReload() const;
 
