@@ -9,35 +9,33 @@
   <component name="ChangeListManager">
     <list default="true" id="d9a14f76-6a19-4915-a00a-6cf870c11cf2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Shooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Shooter/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/AI/BP_ShooterAICharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/BP_ShooterAICharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/EQS/EQS_FindAmmoPickup.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/EQS/EQS_FindAmmoPickup.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP_ShooterGameModeBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_ShooterGameModeBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/LevelTest.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/LevelTest.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Player/Blueprint/BP_ShooterBaseCharacter.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/UI/BP_ShooterGameHUD.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/BP_ShooterGameHUD.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/UI/WBP_GameData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/WBP_GameData.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/UI/WBP_PlayerHUD.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/WBP_PlayerHUD.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI/WBP_SpectatorHUD.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/VFX/Trace/Projectile/NE_Smoke.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/VFX/Trace/Projectile/NE_Smoke.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/VFX/Trace/Projectile/NS_ProjectileTrace.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/VFX/Trace/Projectile/NS_ProjectileTrace.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Weapons/Bluprint/BP_ShooterRifleWeapon.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Weapons/Bluprint/BP_ShooterRifleWeapon.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/AI/ShooterAICharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/AI/ShooterAICharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/AI/ShooterAIController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/AI/ShooterAIController.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/Components/ShooterAIPerceptionComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/Components/ShooterAIPerceptionComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/Components/ShooterHealthComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/Components/ShooterHealthComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/Components/ShooterWeaponComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/Components/ShooterWeaponComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/Player/ShooterBaseCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/Player/ShooterBaseCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/Player/ShooterPlayerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/Player/ShooterPlayerController.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/ShooterGameModeBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/ShooterGameModeBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/UI/SGameDataWidget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/UI/SGameDataWidget.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/UI/ShooterGameHUD.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/UI/ShooterGameHUD.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/UI/ShooterPlayerHUDWidget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/UI/ShooterPlayerHUDWidget.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/Weapon/ShooterBaseWeapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/Weapon/ShooterBaseWeapon.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Shooter/Private/Weapon/ShooterRifleWeapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Private/Weapon/ShooterRifleWeapon.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/AI/ShooterAIController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/AI/ShooterAIController.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/Components/ShooterHealthComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/Components/ShooterHealthComponent.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/Components/ShooterWeaponComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/Components/ShooterWeaponComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/AI/ShooterAICharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/AI/ShooterAICharacter.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/Player/ShooterBaseCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/Player/ShooterBaseCharacter.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/Player/ShooterPlayerController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/Player/ShooterPlayerController.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/ShooterCoreTypes.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/ShooterCoreTypes.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/ShooterGameModeBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/ShooterGameModeBase.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/ShooterUtils.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/ShooterUtils.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/UI/SGameDataWidget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/UI/SGameDataWidget.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/UI/ShooterGameHUD.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/UI/ShooterGameHUD.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/UI/ShooterPlayerHUDWidget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/UI/ShooterPlayerHUDWidget.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/Weapon/ShooterBaseWeapon.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/Weapon/ShooterBaseWeapon.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Shooter/Public/Weapon/ShooterRifleWeapon.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Public/Weapon/ShooterRifleWeapon.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Shooter/Shooter.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Shooter/Shooter.Build.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,7 +282,14 @@
       <workItem from="1723224850186" duration="5555000" />
       <workItem from="1723275512555" duration="15376000" />
       <workItem from="1723375934667" duration="2533000" />
-      <workItem from="1723725162503" duration="578000" />
+      <workItem from="1723725162503" duration="7597000" />
+      <workItem from="1723745257382" duration="9479000" />
+      <workItem from="1723830654748" duration="3290000" />
+      <workItem from="1723893976667" duration="16151000" />
+      <workItem from="1723974175023" duration="3988000" />
+      <workItem from="1723994703930" duration="8527000" />
+      <workItem from="1724081830914" duration="6113000" />
+      <workItem from="1724347452730" duration="2124000" />
     </task>
     <servers />
   </component>

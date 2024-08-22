@@ -5,15 +5,17 @@
 #include "Components/ShooterHealthComponent.h"
 #include "Components/ShooterWeaponComponent.h"
 #include "ShooterUtils.h"
+#include "Components/ProgressBar.h"
+#include "Player/SPlayerState.h"
 
-bool UShooterPlayerHUDWidget::Initialize()
+void UShooterPlayerHUDWidget::NativeOnInitialized()
 {
+	Super::NativeOnInitialized();
 	if(GetOwningPlayer())
 	{
 		GetOwningPlayer()->GetOnNewPawnNotifier().AddUObject(this, &UShooterPlayerHUDWidget::OneNewPawn);
 		OneNewPawn(GetOwningPlayerPawn());
 	}
-	return Super::Initialize();
 }
 
 void UShooterPlayerHUDWidget::OneNewPawn(APawn* NewPawn)
@@ -23,6 +25,8 @@ void UShooterPlayerHUDWidget::OneNewPawn(APawn* NewPawn)
 	{
 		HealthComponent->OnHealthChange.AddUObject(this,&UShooterPlayerHUDWidget::OnHealthChanged);
 	}
+
+	UpdateHealthBar();
 }
 
 void UShooterPlayerHUDWidget::OnHealthChanged(float Health, float HealthDelta)
@@ -31,6 +35,8 @@ void UShooterPlayerHUDWidget::OnHealthChanged(float Health, float HealthDelta)
 	{
 		OnTakeDamage();
 	}
+
+	UpdateHealthBar();
 }
 float UShooterPlayerHUDWidget::GetHealthPercent() const
 {
@@ -70,4 +76,36 @@ bool UShooterPlayerHUDWidget::IsPlayerSpectating() const
 {
 	const auto Controller = GetOwningPlayer();
 	return Controller && Controller->GetStateName() == NAME_Spectating;
+}
+
+int32 UShooterPlayerHUDWidget::GetKillsNum() const
+{
+	const auto Controller = GetOwningPlayer();
+	if(!Controller) return 0;
+	const auto PlayerState = Cast<ASPlayerState>(Controller->PlayerState);
+	return PlayerState ? PlayerState->GetKillsNum() : 0;
+}
+
+void UShooterPlayerHUDWidget::UpdateHealthBar()
+{
+	if(HealthProgressBar)
+	{
+		HealthProgressBar->SetFillColorAndOpacity(GetHealthPercent() > PercentColorThreshold ? GoodColor : BadColor);
+	}
+}
+
+FString UShooterPlayerHUDWidget::FormatBullets(int32 BulletsNum) const
+{
+	const int32 MaxLen = 3;
+	const TCHAR PrefixSymbol = '0';
+
+	auto BulletsStr = FString::FromInt(BulletsNum);
+	const auto SymbolsNumToAdd = MaxLen - BulletsStr.Len();
+
+	if(SymbolsNumToAdd > 0)
+	{
+		BulletsStr = FString::ChrN(SymbolsNumToAdd, PrefixSymbol).Append(BulletsStr);
+	}
+
+	return BulletsStr;
 }

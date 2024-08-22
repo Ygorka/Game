@@ -36,7 +36,9 @@ public class Shooter : ModuleRules
             "Shooter/Public/AI/Tasks",
             "Shooter/Public/AI/Services",
             "Shooter/Public/AI/EQS",
-            "Shooter/Public/AI/Decorators"
+            "Shooter/Public/AI/Decorators",
+            "Shooter/Public/Menu",
+            "Shooter/Public/Menu/UI"
             
 		});
 

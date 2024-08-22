@@ -30,6 +30,8 @@ void AShooterGameModeBase::StartPlay()
 
 	CurrentRound = 1;
 	StartRound();
+
+	SetMatchState(ESMatchState::InProgress);
 }
 
 UClass* AShooterGameModeBase::GetDefaultPawnClassForController_Implementation(AController* InController)
@@ -116,6 +118,7 @@ void AShooterGameModeBase::CreateTeamsInfo()
 		
 		PlayerState->SetTeamID(TeamID);
 		PlayerState->SetTeamColor(DetermineColorByTeamID(TeamID));
+		PlayerState->SetPlayerName(Controller->IsPlayerController() ? "Player" : "Bot");
 		SetPlayerColor(Controller);
 		TeamID = TeamID == 1 ? 2 : 1;
 	}
@@ -209,5 +212,34 @@ void AShooterGameModeBase::GameOver()
 			Pawn->DisableInput(nullptr);
 		}
 	}
-		
+	SetMatchState(ESMatchState::GameOver);
+}
+
+void AShooterGameModeBase::SetMatchState(ESMatchState State)
+{
+	if(MatchState == State) return;
+
+	MatchState = State;
+	OnMatchStateChange.Broadcast(MatchState);
+}
+
+bool AShooterGameModeBase::SetPause(APlayerController* PC, FCanUnpause CanUnpauseDelegate)
+{
+	const auto PauseSet = Super::SetPause(PC, CanUnpauseDelegate);
+
+	if(PauseSet)
+	{
+		SetMatchState(ESMatchState::Pause);
+	}
+	return PauseSet;
+}
+
+bool AShooterGameModeBase::ClearPause()
+{
+	const auto PauseCleared = Super::ClearPause();
+	if(PauseCleared)
+	{
+		SetMatchState(ESMatchState::InProgress);
+	}
+	return PauseCleared;
 }

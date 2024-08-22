@@ -19,10 +19,6 @@ public:
 	AShooterBaseCharacter(const FObjectInitializer& ObjInit);
 
 protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
-
-	virtual void OnDeath();
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Components")
 	UShooterHealthComponent* HealthComponent;
@@ -46,6 +42,10 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category="Material")
 	FName MaterialColorName = "Paint Color";
 
+	virtual void BeginPlay() override;
+	virtual void OnDeath();
+	virtual void OnHealthChange(float Health, float HealthDelta);
+
 public:
 	virtual void Tick(float DeltaTime) override;
 
@@ -58,8 +58,6 @@ public:
 	void SetPlayerColor(const FLinearColor& Color);
 	
 private:
-
-	void OnHealthChange(float Health, float HealthDelta);
 
 	UFUNCTION()
 	void OnGroundLanded(const FHitResult& Hit);
