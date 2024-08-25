@@ -3,7 +3,7 @@
 
 #include "UI/ShooterGameHUD.h"
 #include "Engine/Canvas.h"
-#include "Blueprint/UserWidget.h"
+#include "UI/SBaseWidget.h"
 #include "ShooterGameModeBase.h"
 
 DEFINE_LOG_CATEGORY_STATIC(LogGameHUD, All, All);
@@ -19,9 +19,9 @@ void AShooterGameHUD::BeginPlay()
 {
 	Super::BeginPlay();
 
-	GameWidgets.Add(ESMatchState::InProgress, CreateWidget<UUserWidget>(GetWorld(), PlayerHUDWidgetClass));
-	GameWidgets.Add(ESMatchState::Pause, CreateWidget<UUserWidget>(GetWorld(), PauseWidgetClass));
-	GameWidgets.Add(ESMatchState::GameOver, CreateWidget<UUserWidget>(GetWorld(), GameOverWidgetClass));
+	GameWidgets.Add(ESMatchState::InProgress, CreateWidget<USBaseWidget>(GetWorld(), PlayerHUDWidgetClass));
+	GameWidgets.Add(ESMatchState::Pause, CreateWidget<USBaseWidget>(GetWorld(), PauseWidgetClass));
+	GameWidgets.Add(ESMatchState::GameOver, CreateWidget<USBaseWidget>(GetWorld(), GameOverWidgetClass));
 
 	for(auto GameWidgetPair : GameWidgets)
 	{
@@ -56,6 +56,7 @@ void AShooterGameHUD::OnMatchStateChange(ESMatchState State)
 	if(CurrentWidget)
 	{
 		CurrentWidget->SetVisibility(ESlateVisibility::Visible);
+		CurrentWidget->Show();
 	}
 	UE_LOG(LogGameHUD, Display, TEXT("MatchState is : %s"), *UEnum::GetValueAsString(State));
 }

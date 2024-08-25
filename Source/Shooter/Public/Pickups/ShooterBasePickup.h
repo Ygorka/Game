@@ -7,6 +7,7 @@
 #include "ShooterBasePickup.generated.h"
 
 class USphereComponent;
+class USoundCue;
 
 UCLASS()
 class SHOOTER_API AShooterBasePickup : public AActor
@@ -22,6 +23,9 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, Category = "Pickup")
 	float RespawnTime = 5.0f;
+
+	UPROPERTY(EditDefaultsOnly,BlueprintReadWrite, Category = "Sound")
+	USoundCue* PickupTakenSound;
 
 	virtual void BeginPlay() override;
 	virtual void NotifyActorBeginOverlap(AActor* OtherActor) override;

@@ -8,6 +8,7 @@
 #include "Kismet/KismetSystemLibrary.h"
 #include "SGameInstance.h"
 #include "Menu/UI/SLevelItemWidget.h"
+#include "Sound/SoundCue.h"
 
 
 DEFINE_LOG_CATEGORY_STATIC(LogMenuWidget, All, All)
@@ -79,6 +80,13 @@ void USMenuWidget::OnLevelSelected(const FLevelData& Data)
 
 void USMenuWidget::OnStartGame()
 {
+  PlayAnimation(HideAnimation);
+  UGameplayStatics::PlaySound2D(GetWorld(), StartGameSound);
+}
+
+void USMenuWidget::OnAnimationFinished_Implementation(const UWidgetAnimation* Animation)
+{
+  if(Animation != HideAnimation) return;
   const auto SGameInstance = GetSGameInstance();
   if(!SGameInstance) return;
 

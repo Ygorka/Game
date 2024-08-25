@@ -3,13 +3,13 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Blueprint/UserWidget.h"
+#include "UI/SBaseWidget.h"
 #include "ShooterCoreTypes.h"
 #include "ShooterPlayerHUDWidget.generated.h"
 
 class UProgressBar;
 UCLASS()
-class SHOOTER_API UShooterPlayerHUDWidget : public UUserWidget
+class SHOOTER_API UShooterPlayerHUDWidget : public USBaseWidget
 {
 	GENERATED_BODY()
 public:
@@ -49,6 +49,9 @@ protected:
 	
 	UPROPERTY(meta = (BindWidget))
 	UProgressBar* HealthProgressBar;
+
+	UPROPERTY(meta = (BindWidgetAnim), Transient)
+	UWidgetAnimation* DamageAnimation;
 	
 	virtual void NativeOnInitialized() override;
 private:

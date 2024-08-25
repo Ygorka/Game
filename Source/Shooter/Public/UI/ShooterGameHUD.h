@@ -7,6 +7,7 @@
 #include "ShooterCoreTypes.h"
 #include "ShooterGameHUD.generated.h"
 
+class USBaseWidget;
 UCLASS()
 class SHOOTER_API AShooterGameHUD : public AHUD
 {
@@ -27,10 +28,10 @@ protected:
 	virtual void BeginPlay() override;
 private:
 	UPROPERTY()
-	TMap<ESMatchState, UUserWidget*> GameWidgets;
+	TMap<ESMatchState, USBaseWidget*> GameWidgets;
 
 	UPROPERTY()
-	UUserWidget* CurrentWidget = nullptr;
+	USBaseWidget* CurrentWidget = nullptr;
 	
 	void DrawCrossHair();
 

@@ -7,10 +7,10 @@
 #include "ShooterCoreTypes.h"
 #include "ShooterBaseWeapon.generated.h"
 
-
 class USkeletalMeshComponent;
 class UNiagaraSystem;
 class UNiagaraComponent;
+class USoundCue;
 
 UCLASS()
 class SHOOTER_API AShooterBaseWeapon : public AActor
@@ -53,6 +53,12 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="VFX")
 	UNiagaraSystem* MuzzleFX;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category= "Sound")
+	USoundCue* FireSound;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category= "Sound")
+	USoundCue* NoAmmoSound;
 	
 	virtual void BeginPlay() override;
 	virtual void MakeShot();

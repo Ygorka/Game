@@ -53,6 +53,8 @@ DECLARE_MULTICAST_DELEGATE_TwoParams(FOnHealthChangeSignature, float, float);
 //VFX
 
 class UNiagaraSystem;
+class USoundCue;
+
 USTRUCT(BlueprintType)
 struct FDecalData
 {
@@ -69,6 +71,7 @@ struct FDecalData
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "VFX")
 	float FadeOutTime = 0.7f;
+	
 };
 
 USTRUCT(BlueprintType)
@@ -81,6 +84,9 @@ struct FImpactData
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "VFX")
 	FDecalData DecalData;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Sound")
+	USoundCue* Sound;
 };
 
 //game
